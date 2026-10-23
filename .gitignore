@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+
+# Node.js (caso utilize no futuro)
+node_modules/
+npm-debug.log
+
+# VS Code
+.vscode/
+.history/
+
+# Environment variables
+.env
+.env.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
