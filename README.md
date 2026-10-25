@@ -26,6 +26,7 @@ API de gerenciamento de tarefas (To-Do List) desenvolvida em **Python** e **Fast
 
 ---
 
+
 ## 🏛️ Arquitetura do Projeto
 O projeto segue o padrão de **Arquitetura em Camadas (Separation of Concerns)**, garantindo baixo acoplamento e alta testabilidade:
 
@@ -37,26 +38,3 @@ Cliente HTTP
   -> TaskRepository (app/repositories/)     # Acesso a Dados
   -> SQLAlchemy / Models (app/models/)      # Mapeamento ORM
   -> SQLite (tasks.db)                      # Base de Dados Relacional
-
-##📁 **Estrutura de Diretórios**
-Plaintext
-api-tarefas/
-│
-├── app/
-│   ├── __init__.py
-│   ├── main.py               # Ponto de entrada da aplicação FastAPI
-│   ├── database.py           # Configuração da engine e sessão SQLAlchemy
-│   ├── models/               # Modelos ORM da Base de Dados
-│   ├── schemas/              # Schemas Pydantic (Request/Response DTOs)
-│   ├── repositories/         # Camada de persistência e consultas
-│   ├── routers/              # Endpoints e rotas HTTP da API
-│   └── services/             # Lógica de negócio e serviço de IA
-│
-├── tests/
-│   ├── test_main.py          # Testes de integração das rotas
-│   └── test_ai_service.py    # Testes unitários do serviço de IA
-│
-├── .gitignore
-├── requirements.txt
-└── README.md
-  
