@@ -1,17 +1,19 @@
-from datetime import datetime
 from fastapi import FastAPI
+from datetime import datetime
+from app.database import engine, Base
 from app.routers import task_router
 
+# Cria as tabelas na base de dados se não existirem
+Base.metadata.create_all(bind=engine)
+
 app = FastAPI(
-    title="Micro-API de Tarefas",
-    description="MVP de gestão de tarefas com priorização assistida por IA",
-    version="1.0.0",
+    title="API de Gerenciamento de Tarefas com IA",
+    version="5.0.0",
+    description="API robusta em FastAPI com priorização automática por IA e persistência SQLAlchemy."
 )
 
-# Incluir as rotas de tarefas
 app.include_router(task_router.router)
 
-
-@app.get("/health")
+@app.get("/health", tags=["Sistema"])
 def health_check():
-  return {"status": "ok", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "timestamp": datetime.now().isoformat()}

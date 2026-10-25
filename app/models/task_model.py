@@ -1,12 +1,13 @@
-from dataclasses import dataclass
-from datetime import datetime
-from typing import Optional
+from sqlalchemy import Column, Integer, String, Boolean, DateTime
+from datetime import datetime, timezone
+from app.database import Base
 
-@dataclass
-class Task:
-    id: int
-    title: str
-    description: Optional[str]
-    priority: str
-    completed: bool
-    created_at: datetime
+class Task(Base):
+    __tablename__ = "tasks"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    title = Column(String(100), nullable=False)
+    description = Column(String(500), nullable=True)
+    priority = Column(String(20), nullable=False)
+    completed = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

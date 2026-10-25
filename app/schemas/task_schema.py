@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional
 from datetime import datetime
 
@@ -19,3 +19,5 @@ class TaskResponseDTO(BaseModel):
     priority: str
     completed: bool
     created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
