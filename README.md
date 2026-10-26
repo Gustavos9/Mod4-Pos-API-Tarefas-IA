@@ -1,15 +1,40 @@
-# Micro-API de Gestão de Tarefas (MVP)
+# 🚀 API RESTful de Gerenciamento de Tarefas com FastAPI e IA
 
-MVP de micro-API para gestão de tarefas com priorização assistida por Inteligência Artificial, desenvolvido como parte do laboratório prático.
+API de gerenciamento de tarefas (To-Do List) desenvolvida em **Python** e **FastAPI** como parte do projeto prático de pós-graduação. O sistema conta com uma arquitetura em camadas limpa, persistência relacional transacional e um serviço inteligente de priorização de tarefas assistido por Inteligência Artificial.
 
-## 🚀 Tecnologias Utilizadas
-- **Python** (com FastAPI)
-- **Uvicorn** (servidor ASGI)
-- **Pydantic** (validação de dados)
+---
 
-## 📦 Como Rodar Localmente
+## 🛠️ Tecnologias e Stack
+* **Linguagem:** Python 3.12+
+* **Framework Web:** FastAPI (Assíncrono e de alta performance)
+* **Persistência / ORM:** SQLAlchemy com SQLite (Banco local em arquivo e isolamento em memória para testes)
+* **Validação de Dados:** Pydantic V2 (DTOs e tipagem estrita)
+* **Testes Automatizados:** Pytest (Suíte de integração isolada)
+* **Servidor ASGI:** Uvicorn
 
-1. Crie e ative o ambiente virtual:
-   ```bash
-   py -m venv .venv
-   .\.venv\Scripts\Activate.ps1
+---
+
+## 📋 Funcionalidades Implementadas
+- **CRUD Completo:** Criação, listagem geral, consulta por ID, atualização parcial (`PATCH`) e exclusão de tarefas.
+- **Gestão de Estados:** Controlo de tarefas por status (`pending` / `completed`).
+- **Filtros Dinâmicos:** Filtragem avançada através de *Query Parameters*.
+- **Persistência Real:** Os dados são gravados num ficheiro local (`tasks.db`), garantindo que não se perdem ao reiniciar a aplicação.
+- **Priorização Inteligente por IA:** Módulo de serviços dedicado (`AITaskService`) com normalização de acentos para detetar e sugerir automaticamente a prioridade das tarefas.
+- **Validação e Tratamento de Erros:** Respostas HTTP padronizadas (`201 Created`, `200 OK`, `404 Not Found`, `422 Unprocessable Entity`).
+- **Health Check:** Endpoint dedicado em `/health` para monitorização de saúde da aplicação.
+- **Documentação Automática:** Swagger UI interativo integrado em `/docs`.
+
+---
+
+
+## 🏛️ Arquitetura do Projeto
+O projeto segue o padrão de **Arquitetura em Camadas (Separation of Concerns)**, garantindo baixo acoplamento e alta testabilidade:
+
+```text
+Cliente HTTP
+  -> FastAPI Router (app/routers/)          # Camada de Apresentação / Endpoints
+  -> Schemas Pydantic (app/schemas/)        # Validação de Dados e DTOs
+  -> TaskService (app/services/)            # Regras de Negócio e IA
+  -> TaskRepository (app/repositories/)     # Acesso a Dados
+  -> SQLAlchemy / Models (app/models/)      # Mapeamento ORM
+  -> SQLite (tasks.db)                      # Base de Dados Relacional
