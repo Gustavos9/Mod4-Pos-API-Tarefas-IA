@@ -87,4 +87,16 @@ A suíte abrange validações de schemas, regras de negócio, testes de integra�
 | **DELETE** | `/tasks/{task_id}` | `204 No Content` | Remove permanentemente a tarefa especificada. |
 | **GET** | `/health` | `200 OK` | Retorna o estado operacional do microsserviço. |
 ---
+## 🤖 GenAI no Desenvolvimento
+
+Ferramentas de Inteligência Artificial Generativa foram utilizadas como apoio complementar durante o processo de estruturação, revisão de código, criação de schemas Pydantic, testes automatizados e documentação técnica. 
+
+Ressalta-se que esta assistência não constitui um requisito de *runtime* (execução); a API principal opera de forma totalmente independente, robusta e funcional sem qualquer dependência de internet ou de provedores externos de IA.
+
+---
+
+## 📄 Licença
+
+Este projeto encontra-se distribuído sob os termos da licença [MIT](LICENSE). Consulte o ficheiro [LICENSE](LICENSE) incluído no repositório para mais detalhes.
+---
 *Desenvolvido por **Gustavo Sabino**.*
