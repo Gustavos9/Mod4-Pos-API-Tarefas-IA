@@ -76,9 +76,9 @@ A suíte abrange validações de schemas, regras de negócio, testes de integra�
 ```
 ---
 
-### 📌 Endpoints da API
+## 📌 Endpoints da API
 
-```| Método | Rota | Status de Sucesso | Descrição |
+| Método | Rota | Status de Sucesso | Descrição |
 | :--- | :--- | :--- | :--- |
 | **POST** | `/tasks` | `201 Created` | Regista uma nova tarefa no sistema. |
 | **GET** | `/tasks` | `200 OK` | Retorna a lista de tarefas (com suporte a filtros). |
@@ -86,6 +86,5 @@ A suíte abrange validações de schemas, regras de negócio, testes de integra�
 | **PATCH** | `/tasks/{task_id}` | `200 OK` | Atualiza atributos ou o status de conclusão. |
 | **DELETE** | `/tasks/{task_id}` | `204 No Content` | Remove permanentemente a tarefa especificada. |
 | **GET** | `/health` | `200 OK` | Retorna o estado operacional do microsserviço. |
-
 ---
 *Desenvolvido por **Gustavo Sabino** / **Lucas Ferreira** para avaliação de Pós-Graduação.*
