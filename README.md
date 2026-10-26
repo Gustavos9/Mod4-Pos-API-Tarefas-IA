@@ -38,3 +38,54 @@ Cliente HTTP
   -> TaskRepository (app/repositories/)     # Acesso a Dados
   -> SQLAlchemy / Models (app/models/)      # Mapeamento ORM
   -> SQLite (tasks.db)                      # Base de Dados Relacional
+```
+
+---
+
+## ⚙️ Configuração e Execução Local
+
+### 1. Ambiente Virtual
+No terminal (PowerShell), crie e ative o ambiente virtual:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+2. Instalação das Dependências
+```PowerShell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+3. Executando a API
+```PowerShell
+uvicorn app.main:app --reload
+```
+Acesse a documentação interativa em http://127.0.0.1:8000/docs.
+
+---
+
+### 🧪 Suíte de Testes Automatizados
+```
+Para certificar a integridade do sistema, execute os testes com o pytest num ambiente isolado:
+
+PowerShell
+PYTHONPATH=. pytest -v
+
+A suíte abrange validações de schemas, regras de negócio, testes de integração das rotas HTTP e comportamento do repositório.
+
+```
+---
+
+### 📌 Endpoints da API
+
+```| Método | Rota | Status de Sucesso | Descrição |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/tasks` | `201 Created` | Regista uma nova tarefa no sistema. |
+| **GET** | `/tasks` | `200 OK` | Retorna a lista de tarefas (com suporte a filtros). |
+| **GET** | `/tasks/{task_id}` | `200 OK` | Consulta os detalhes de uma tarefa específica. |
+| **PATCH** | `/tasks/{task_id}` | `200 OK` | Atualiza atributos ou o status de conclusão. |
+| **DELETE** | `/tasks/{task_id}` | `204 No Content` | Remove permanentemente a tarefa especificada. |
+| **GET** | `/health` | `200 OK` | Retorna o estado operacional do microsserviço. |
+
+---
+*Desenvolvido por **Gustavo Sabino** / **Lucas Ferreira** para avaliação de Pós-Graduação.*
