@@ -87,4 +87,4 @@ A suíte abrange validações de schemas, regras de negócio, testes de integra�
 | **DELETE** | `/tasks/{task_id}` | `204 No Content` | Remove permanentemente a tarefa especificada. |
 | **GET** | `/health` | `200 OK` | Retorna o estado operacional do microsserviço. |
 ---
-*Desenvolvido por **Gustavo Sabino** / **Lucas Ferreira** para avaliação de Pós-Graduação.*
+*Desenvolvido por **Gustavo Sabino**.*
